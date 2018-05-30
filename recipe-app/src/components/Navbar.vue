@@ -6,7 +6,7 @@
           <span class="nav-title">My Recipe Book</span>
         </router-link>
         <a href="" class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
-          <router-link to="/"  >
+          <router-link :to="{ name: 'AddRecipe' }" >
             <i class="material-icons">add</i>
           </router-link>
         </a>
