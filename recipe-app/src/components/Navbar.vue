@@ -2,8 +2,8 @@
   <div class="navbar">
     <nav class="nav-extended indigo darken-2">
       <div class="nav-content">
-        <router-link to="">
-          <span class="nav-title">Recipe Bookmark</span>
+        <router-link to="/">
+          <span class="nav-title">My Recipe Book</span>
         </router-link>
         <a href="" class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
           <router-link to="/"  >
@@ -21,7 +21,7 @@ export default {
   name: 'Navbar',
   data() {
     return {
-      
+
     }
   }
 }
