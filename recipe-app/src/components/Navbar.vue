@@ -1,11 +1,11 @@
 <template>
   <div class="navbar">
-    <nav class="nav-extended indigo darken-2">
+    <nav class="nav-extended cyan darken-4">
       <div class="nav-content">
         <router-link to="/">
           <span class="nav-title">My Recipe Book</span>
         </router-link>
-        <a href="" class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+        <a href="" class="btn-floating btn-large halfway-fab waves-effect waves-light pulse teal">
           <router-link :to="{ name: 'AddRecipe' }" >
             <i class="material-icons">add</i>
           </router-link>
