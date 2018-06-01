@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-image">
             <img :src="recipeImage" :alt="recipe.slug">
-            <router-link :to="editRecipeLink" class="edit-recipe-button btn-floating btn-large halfway-fab waves-effect waves-light">
+            <router-link :to="editRecipeLink" class="edit-recipe-button btn-floating btn-large waves-effect waves-light">
               <i class="material-icons">edit</i>
             </router-link>
           </div>
@@ -23,7 +23,7 @@
             </ul>
           </div>
             <div class="row instructions-row">
-              <div class="col">
+              <div class="col instructions-col">
                 <div class="card teal instructions-card">
                   <div class="card-content instructions-content">
                     <ul class="collection">
@@ -82,6 +82,18 @@ export default {
 /* .card{
   padding-bottom: 30px;
 } */
+.edit-recipe-button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: #00968700;
+  border: 1px solid #009688;
+}
+
+.edit-recipe-button i{
+  color: #009688;
+}
+
 
 .card-image {
   border: 30px solid #009688;
@@ -96,7 +108,11 @@ export default {
 }
 
 .instructions-row {
-  margin-bottom: 0;
+  margin-bottom: 0;;
+}
+
+.instructions-col {
+  min-width: 100%;
 }
 
 .instructions-card {
@@ -107,6 +123,7 @@ export default {
 .instructions-content {
   padding: 0;
   margin: 0;
+  /* width: 950px */
 }
 
 .instructions-content ul {
@@ -117,5 +134,6 @@ export default {
 .instructions-content h4 {
   padding-left: 20px;
 }
+
 
 </style>
