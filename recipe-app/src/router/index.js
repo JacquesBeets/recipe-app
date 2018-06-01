@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import IndexComponent from '@/components/Index'
 import RecipeView from '@/components/RecipeView'
 import AddRecipe from '@/components/AddRecipe'
+import EditRecipe from '@/components/EditRecipe'
 
 Vue.use(Router)
 
@@ -24,10 +25,10 @@ export default new Router({
       name: 'RecipeView',
       component: RecipeView
     },
-    // {
-    //   path: '/recipe/edit/:recipe_slug',
-    //   name: 'EditRecipe',
-    //   component: EditRecipe
-    // }
+    {
+      path: '/recipe/edit/:recipe_slug',
+      name: 'EditRecipe',
+      component: EditRecipe
+    }
   ]
 })

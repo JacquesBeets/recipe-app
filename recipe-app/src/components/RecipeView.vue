@@ -1,10 +1,13 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="recipeImage">
     <div class="row">
       <div class="col">
         <div class="card">
           <div class="card-image">
-            <img :src="recipe.imageURL" :alt="recipe.slug">
+            <img :src="recipeImage" :alt="recipe.slug">
+            <router-link :to="editRecipeLink" class="edit-recipe-button btn-floating btn-large halfway-fab waves-effect waves-light">
+              <i class="material-icons">edit</i>
+            </router-link>
           </div>
           <div class="card-title">
             <h3>{{recipe.title}}</h3>
@@ -50,7 +53,9 @@ export default {
   data(){
     return {
       recipeSlug: this.$route.params.recipe_slug,
-      recipe: null
+      editRecipeLink: null,
+      recipe: null,
+      recipeImage: null
     }
   },
   created(){
@@ -60,6 +65,8 @@ export default {
           snapshot.forEach(doc => {
             this.recipe = doc.data()
             this.recipe.id = doc.id
+            this.editRecipeLink = `/recipe/edit/${this.recipeSlug}`
+            this.recipeImage = this.recipe.imageURL
           })
       })
   }
