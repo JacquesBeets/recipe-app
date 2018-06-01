@@ -20,9 +20,14 @@ export default new Router({
       component: AddRecipe
     },
     {
-      path: '/view-recipe/:slug',
+      path: '/recipe/:recipe_slug',
       name: 'RecipeView',
       component: RecipeView
-    }
+    },
+    // {
+    //   path: '/recipe/edit/:recipe_slug',
+    //   name: 'EditRecipe',
+    //   component: EditRecipe
+    // }
   ]
 })

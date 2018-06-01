@@ -63,9 +63,9 @@ export default {
 
 
   span {
-    background-color: rgba(0, 0, 0, 0.664);
-    color: white;
-    width: 100%;
+    background-color: #009687cb;
     text-align: center;
+    text-shadow: 1px 1px black;
+    width: 100%;
   }
 </style>
