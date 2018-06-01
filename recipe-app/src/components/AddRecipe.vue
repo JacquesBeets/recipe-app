@@ -88,9 +88,19 @@
     <div class="card">
       <div class="field center-align">
         <button @click.prevent="addRecipe" class="waves-effect waves-light btn-large teal"><i class="material-icons left">cloud</i>Add Recipe</button>
-        <button @click.prevent="cancel"  class="waves-effect waves-light btn-large red"><i class="material-icons left">close</i>Cancel</button>
+        <button @click.prevent="cancel" data-target="modal1" id="cancelBtn" class="waves-effect waves-light btn-large red"><i class="material-icons left">close</i>Cancel</button>
       </div>
     </div>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+              </div>
+            </div>
   </div>
 </template>
 
@@ -129,18 +139,25 @@ export default {
     addIngre(){
       if(this.ingreVal && this.ingreQty && this.ingreMeas){
         this.ingredients.push({name: this.ingreVal, qty: this.ingreQty, measure: this.ingreMeas})
+        this.feedback = this.ingreVal + ' added. You can view & edit below.'
+        M.toast({html: this.feedback, displayLength: 4000, classes: 'green'})
+        this.feedback = null
         this.ingreVal = null
         this.ingreQty = null
         this.ingreMeas = null
         this.$refs.ingredient.focus()
-        this.feedback = null
       }else{
-        this.feedback = 'Please make sure you have completed both fields before pressing enter.'
+        this.feedback = 'Please make sure you have completed all fields before pressing enter.'
+        M.toast({html: this.feedback, displayLength: 5000, classes: 'red'})
+        this.feedback = null
       }
     },
     addInstruct(){
       if(this.instruckVal){
         this.instructions.push(this.instruckVal)
+        this.feedback = 'Instruction added. You can view & edit below.'
+        M.toast({html: this.feedback, displayLength: 4000, classes: 'green'})
+        this.feedback = null
         this.instruckVal = null
         this.$refs.instructions.focus()
       }
@@ -163,15 +180,20 @@ export default {
         }).catch(err => {
           console.log(err)
           this.feedback = err
+          M.toast({html: this.feedback, displayLength: 5000, classes: 'red'})
         })
         this.feedback = null
       } else {
         this.feedback = 'Please enter a recipe title to continue'
+        M.toast({html: this.feedback, displayLength: 5000, classes: 'red'})
+        this.feedback = null
       }
       
     },
     cancel(){
-      if(confirm('Are you sure you want to cancel?')){
+      var instance = M.Modal.init(document.getElementById('modal1'))
+      instance.open()
+      if(instance.open()){
         this.$router.push("/")
       }
     },
